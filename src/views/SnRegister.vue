@@ -5,12 +5,10 @@
         <div class="col-md-6 offset-md-3 col-xs-12">
           <h1 class="text-xs-center">Sign up</h1>
           <p class="text-xs-center">
-<!--            <router-link :to="{name: 'login'}">-->
-<!--              Need an account?-->
-<!--            </router-link>-->
+            <router-link :to="{name: 'login'}">Need an account?</router-link>
           </p>
           VALIDATION ERRORS
-          <form>
+          <form @submit.prevent="onSubmit">
             <fieldset class="form-group">
               <input
                   class="form-control form-control-lg"
@@ -32,9 +30,10 @@
                   placeholder="Password"
               />
             </fieldset>
-            <button class="btn btn-lg btn-primary pull-xs-right">
+            <button class="btn btn-lg btn-primary pull-xs-right" :disabled="$store.getters.isSubmitting">
               Sign Up
             </button>
+            {{ $store.getters.isSubmitting }}
           </form>
         </div>
       </div>
@@ -44,6 +43,15 @@
 
 <script>
 export default {
-  name: 'SnRegister'
-}
+  name: 'SnRegister',
+  methods: {
+    onSubmit() {
+      this.$store.commit('registerStart');
+      this.$store.dispatch('register', {}).then((user)=> {
+        console.log(user);
+        console.log('successfully register user');
+      });
+    },
+  },
+};
 </script>

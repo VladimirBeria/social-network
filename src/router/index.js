@@ -12,6 +12,10 @@ const routes = [
     path: '/register',
     name: 'register',
     component: SnRegister,
+  },
+  {
+    path: '/login',
+    name: 'login',
   }
 ]
 
