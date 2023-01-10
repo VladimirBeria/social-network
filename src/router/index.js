@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import HomeView from '@/views/HomeView.vue'
 import SnRegister from '@/views/SnRegister';
+import SnLogin from '@/views/SnLogin';
 
 const routes = [
   {
@@ -16,6 +17,7 @@ const routes = [
   {
     path: '/login',
     name: 'login',
+    component: SnLogin,
   }
 ]
 
