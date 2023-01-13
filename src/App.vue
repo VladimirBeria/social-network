@@ -1,11 +1,16 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link :to="{name: 'register'}">About</router-link>
+    <SnTopBar/>
   </nav>
   <router-view/>
 </template>
 
-<style>
-
-</style>
+<script>
+import SnTopBar from '@/components/SnTopBar';
+export default {
+  name: 'App',
+  components: {
+    SnTopBar
+  }
+}
+</script>

@@ -59,7 +59,13 @@ const getters = {
   },
   validationErrors(state) {
     return state.validationErrors
-  }
+  },
+  currentUser(state) {
+    return state.currentUser
+  },
+  isLoggedIn(state) {
+    return state.isLoggedIn
+  },
 };
 
 const actions = {
